@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#040810">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="J.A.R.V.I.S."
+            android:textColor="#4fe0ff"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.15"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Always-listening background assistant"
+            android:textColor="#5f8a9c"
+            android:textSize="12sp"
+            android:layout_marginBottom="28dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Picovoice AccessKey"
+            android:textColor="#d9f4ff"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/picovoiceKeyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="from console.picovoice.ai"
+            android:textColorHint="#5f8a9c"
+            android:textColor="#ffffff"
+            android:background="#081420"
+            android:padding="12dp"
+            android:layout_marginBottom="18dp"
+            android:inputType="textVisiblePassword" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anthropic API key"
+            android:textColor="#d9f4ff"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/anthropicKeyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="from console.anthropic.com"
+            android:textColorHint="#5f8a9c"
+            android:textColor="#ffffff"
+            android:background="#081420"
+            android:padding="12dp"
+            android:layout_marginBottom="20dp"
+            android:inputType="textVisiblePassword" />
+
+        <Button
+            android:id="@+id/saveKeysButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save keys"
+            android:layout_marginBottom="14dp" />
+
+        <Button
+            android:id="@+id/batteryOptButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disable battery optimization"
+            android:layout_marginBottom="14dp" />
+
+        <Button
+            android:id="@+id/toggleServiceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Jarvis"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save your keys, then tap Start Jarvis."
+            android:textColor="#5f8a9c"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</ScrollView>
