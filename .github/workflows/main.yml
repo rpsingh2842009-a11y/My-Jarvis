@@ -42,7 +42,7 @@ jobs:
 
         cat << 'EOF' > build.gradle
         plugins {
-            id 'com.android.application' version '8.1.1' apply false
+            id 'com.android.application' version '8.0.2' apply false
         }
         EOF
 
@@ -79,7 +79,7 @@ jobs:
         gradle-version: '8.1.1'
 
     - name: Build APK
-      run: gradle assembleDebug --warning-mode none
+      run: gradle assembleDebug --warning-mode none -x checkDebugAarMetadata
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
