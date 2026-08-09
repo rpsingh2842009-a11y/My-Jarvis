@@ -41,14 +41,8 @@ jobs:
         EOF
 
         cat << 'EOF' > build.gradle
-        buildscript {
-            repositories {
-                google()
-                mavenCentral()
-            }
-            dependencies {
-                classpath 'com.android.tools.build:gradle:8.1.1'
-            }
+        plugins {
+            id 'com.android.application' version '8.1.1' apply false
         }
         EOF
 
@@ -79,16 +73,15 @@ jobs:
         }
         EOF
 
-    - name: Setup Gradle Wrapper
-      run: |
-        gradle wrapper --gradle-version 8.1.1
-        chmod +x gradlew
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
 
     - name: Build APK
-      run: ./gradlew assembleDebug --no-daemon
+      run: gradle assembleDebug --warning-mode none
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: jarvis-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
+        
