@@ -37,6 +37,7 @@ jobs:
             }
         }
         rootProject.name = "My-Jarvis"
+        include ':app'
         EOF
 
         cat << 'EOF' > build.gradle
@@ -48,9 +49,6 @@ jobs:
             dependencies {
                 classpath 'com.android.tools.build:gradle:8.1.1'
             }
-        }
-        plugins {
-            id 'com.android.application' version '8.1.1' apply false
         }
         EOF
 
@@ -81,13 +79,16 @@ jobs:
         }
         EOF
 
-    - name: Build APK with Direct Gradle
-      run: gradle assembleDebug --no-daemon
+    - name: Setup Gradle Wrapper
+      run: |
+        gradle wrapper --gradle-version 8.1.1
+        chmod +x gradlew
+
+    - name: Build APK
+      run: ./gradlew assembleDebug --no-daemon
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: jarvis-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
-
-
